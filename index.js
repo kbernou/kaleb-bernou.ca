@@ -5,33 +5,83 @@ const express = require("express"),
       fs = require("fs"),
       port = process.env.PORT || 4000;
 
-function AddSitewideContent(page) {
-    const file = __dirname + "/public/" + page + ".html";
-    let content = fs.readFileSync(file, "utf8");
-    content = AddHeader(content);
-    content = AddFooter(content);
-    return content;
-}
-
-function AddHeader(content) {
-    return fs.readFileSync(__dirname + "/public/templates/header.html") + content;
-}
-
-function AddFooter(content) {
-    return content + fs.readFileSync(__dirname + "/public/templates/footer.html");
-}
-
-app.use(express.urlencoded({ extended: true}));
-
-app.use("/", express.static("public"));
-app.use("/projects", (req, res) => {
-    res.send(AddSitewideContent("/index"));
-    
+// recipe list
+let recipes = [];
+fs.readdirSync("views/recipes").forEach(recipe => {
+    if (recipe != "index.ejs") recipes.push(recipe.slice(0, -4));
 });
-app.use("/recipes", express.static("public/recipes"));
+
+// project list
+let projects = [];
+fs.readdirSync("views/projects").forEach(project => {
+    if (project != "index.ejs") projects.push(project.slice(0, -4));
+});
+
+function ToTitleCase(name) {
+    let title = name.toLowerCase().split(" ");
+    for (let i = 0; i < title.length; i++)
+        title[i] = title[i][0].toUpperCase() + title[i].slice(1);
+
+    return title.join(" ");
+}
+
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+
+app.get("/recipes", (req, res) => {
+    res.render("pagebuilder", { builderObj: {
+        title: "Recipes",
+        page: "recipes/index",
+        recipes
+    }});
+});
+
 app.get("/recipes/:recipe", (req, res) => {
-    res.send(content);
+    let recipe = req.params.recipe.toLowerCase();
+
+    if (recipes.includes(recipe)) {
+        res.render("pagebuilder", {builderObj: {
+            title: ToTitleCase(recipe),
+            page: `recipes/${recipe}`,
+            ToTitleCase
+        }});
+    }
+        
+    else
+        res.redirect("/recipes");
 });
+
+app.get("/projects", (req, res) => {
+    res.render("pagebuilder", { builderObj: {
+        title: "Projects",
+        page: "projects/index",
+        projects,
+        ToTitleCase
+    }});
+});
+
+app.get("/projects/:project", (req, res) => {
+    let project = req.params.project.toLowerCase();
+
+    if (projects.includes(project))
+        res.render("pagebuilder", { builderObj: {
+            title: ToTitleCase(project),
+            page: `projects/${project}`
+        }});
+    else
+        res.redirect("/projects");
+});
+
+app.get("/", (req, res) => {
+    res.render("pagebuilder", { builderObj: {
+        title: "Home",
+        page: "index"
+    }});
+});
+
+app.use((req, res) => {
+    res.redirect("/");
+})
 
 app.listen(port, () => {
     console.log(`Listening on ${port}`);
