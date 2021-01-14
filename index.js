@@ -20,7 +20,6 @@ fs.readdirSync("views/projects").forEach(project => {
 function ToTitleCase(name) {
     let title = name.toLowerCase().split(" ");
     for (let i = 0; i < title.length; i++) {
-        console.log(title[i]);
         title[i] = title[i][0].toUpperCase() + title[i].slice(1);
     }
     return title.join(" ");
@@ -39,17 +38,15 @@ app.get("/recipes", (req, res) => {
 });
 
 app.get("/recipes/:recipe", (req, res) => {
-    let recipe = req.params.recipe.toLowerCase();
+    let recipe = req.params.recipe;
 
     if (recipes.includes(recipe)) {
-        res.render("pagebuilder", {builderObj: {
+        res.render("pagebuilder", { builderObj: {
             title: ToTitleCase(recipe),
             page: `recipes/${recipe}`,
             ToTitleCase
         }});
-    }
-        
-    else
+    } else
         res.redirect("/recipes");
 });
 
@@ -64,14 +61,14 @@ app.get("/projects", (req, res) => {
 
 app.get("/projects/:project", (req, res) => {
     let project = req.params.project.toLowerCase();
-
-    if (projects.includes(project))
+    
+    if (projects.includes(project)) {
         res.render("pagebuilder", { builderObj: {
             title: ToTitleCase(project),
             page: `projects/${project}`,
             ToTitleCase
         }});
-    else
+    } else
         res.redirect("/projects");
 });
 
