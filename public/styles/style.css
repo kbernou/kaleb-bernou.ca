@@ -3,35 +3,36 @@
         color: #fff;
         background: #252525
     }
-
-    a:link,
-    a:visited {
-        color: rgb(169, 212, 255)
-    }
-
-    a:hover,
-    a:visited:hover {
-        color: #cef
-    }
 }
 
 body {
     margin: 1em auto;
-    max-width: 50em;
+    max-width: 40em;
     padding: 0 .62em;
     font: 1.2em/1.62 serif;
-}
-
-pre,
-code {
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 20px;
 }
 
 h1,
 h2,
 h3 {
     line-height: 1.2;
+}
+
+a:link,
+a:visited {
+    color: rgb(169, 212, 255)
+}
+
+a:hover,
+a:visited:hover {
+    color: #cef
+}
+
+pre,
+code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
 }
