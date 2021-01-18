@@ -3,6 +3,33 @@
         color: #fff;
         background: #121212
     }
+
+    a:link,
+    a:visited {
+        color: #a9d4ff
+    }
+
+    a:hover,
+    a:visited:hover {
+        color: #cef
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+         color: #000;
+         background: #fff8ed;
+     }
+
+    a:link,
+    a:visited {
+        color: #007dfa
+    }
+
+    a:hover,
+    a:visited:hover {
+        color: #28b7ff
+    }
 }
 
 body {
@@ -16,16 +43,6 @@ h1,
 h2,
 h3 {
     line-height: 1.2;
-}
-
-a:link,
-a:visited {
-    color: rgb(169, 212, 255)
-}
-
-a:hover,
-a:visited:hover {
-    color: #cef
 }
 
 pre,
