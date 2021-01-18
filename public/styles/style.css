@@ -1,17 +1,17 @@
 @media (prefers-color-scheme: dark) {
     body {
         color: #fff;
-        background: #121212
+        background: #121212;
     }
 
     a:link,
     a:visited {
-        color: #a9d4ff
+        color: #a9d4ff;
     }
 
     a:hover,
     a:visited:hover {
-        color: #cef
+        color: #cef;
     }
 }
 
@@ -23,12 +23,12 @@
 
     a:link,
     a:visited {
-        color: #007dfa
+        color: #007dfa;
     }
 
     a:hover,
     a:visited:hover {
-        color: #28b7ff
+        color: #28b7ff;
     }
 }
 
