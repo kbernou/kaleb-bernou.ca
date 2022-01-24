@@ -1,12 +1,11 @@
 # kaleb-bernou.ca
-It's the website.
+It's my website. Revised to keep things simple.
 
-I had serverside injection pointed out to me later. That almost certainly could have gotten me to where I wanted, but I'm committed to this now. Plus it's kind of nice to have everything in one place should it need to live somewhere else.
+Favicon courtesy of [Formito](https://formito.com/tools/favicon). Google Fonts, 
+Balthazar.
 
-Favicon courtesy of [Formito](https://formito.com/tools/favicon). Google Fonts, Balthazar.
-
-# Development
-* Clone
-* Nodemon is nice to have: `npm install -g nodemon`
-* `npm install`
-* Run with `nodemon index.js` (or simply `node index.js`)
+# Some Details
+There's a template file that well, acts as a template for each page. This is how
+the header and footer are injected into each page.
+## Building
+* Ensure [`pandoc`](https://pandoc.org/) is installed
