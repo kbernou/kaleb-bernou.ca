@@ -1,12 +1,30 @@
 # kaleb-bernou.ca
-It's the website.
+It's my website. Revised to keep things simple.
 
-I had serverside injection pointed out to me later. That almost certainly could have gotten me to where I wanted, but I'm committed to this now. Plus it's kind of nice to have everything in one place should it need to live somewhere else.
+Favicon courtesy of [Formito](https://formito.com/tools/favicon). Google Fonts, 
+Balthazar.
 
-Favicon courtesy of [Formito](https://formito.com/tools/favicon). Google Fonts, Balthazar.
+## Building
+* Ensure [`pandoc`](https://pandoc.org/) is installed
+* Ensure Python >= 3.4 is installed (for `pathlib`)
+* Run `python generate.py` from root dir to build the site
+* Stick contents of the generated `html` directory where it's being served from
+(in my case Nginx)
 
-# Development
-* Clone
-* Nodemon is nice to have: `npm install -g nodemon`
-* `npm install`
-* Run with `nodemon index.js` (or simply `node index.js`)
+## TODO
+* Parallelize the building process
+* Also have it move an assets folder and its contents as part of the process
+* Fix generation script to support more than one level of directory
+* Clean up the generation script a bit
+* Empty the `html` directory before adding in the new HTML
+* Clean up the Header/Footer file generation
+* Maybe add some table of contents here and there
+
+## Details
+Markdown files are placed into the `src` directory. When the `generate.py` 
+script is ran, it looks at the folder structre of `src`, duplicates in in 
+`html`, then runs `pandoc` for each markdown file in `src`. It runs `pandoc` 
+such that:
+* The template specified in `assets` is used
+* Each file is "standalone"
+* The directory structure in `html` mirros `src`

@@ -1,2 +1,3 @@
-node_modules
-.secret
+html
+assets/header.html
+assets/footer.html
