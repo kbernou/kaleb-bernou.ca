@@ -11,6 +11,23 @@ for dir in sub_md_dirs:
     if not os.path.exists(current_dir):
         os.makedirs(current_dir)
 
+# generate header and footers first
+os.system(
+    f'pandoc \
+        --lua-filter "assets/fix-links.lua" \
+        --from gfm \
+        --to html5 \
+        --output "html/const/header.html" \
+        "src/const/header.md"') 
+
+os.system(
+    f'pandoc \
+        --lua-filter "assets/fix-links.lua" \
+        --from gfm \
+        --to html5 \
+        --output "html/const/footer.html" \
+        "src/const/footer.md"')
+
 # run pandoc for each md file in the `src` dir
 files = list(Path(md_dir).rglob("*.[mM][dD]"))
 for file in files:
@@ -25,4 +42,13 @@ for file in files:
     subdir = f'{html_dir}/{file_dir}/{file.stem}.html'
     
     os.system(
-        f'pandoc --lua-filter "assets/fix-links.lua" --standalone --from gfm --to html5 --output "{subdir}" "{file}"')
+        f'pandoc \
+            --lua-filter "assets/fix-links.lua" \
+            --standalone \
+            --template assets/template.html \
+            --include-before html/const/header.html \
+            --include-after html/const/footer.html \
+            --from gfm \
+            --to html5 \
+            --output "{subdir}" \
+            "{file}"')
