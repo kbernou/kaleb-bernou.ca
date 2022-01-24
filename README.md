@@ -20,6 +20,7 @@ Balthazar.
 * Maybe add some table of contents here and there
 * See if the links in the header can't be made to work in the generated HTML and
 when displayed in the Markdown on GitHub and such.
+* Custom 404 page (and have it linked to)
 
 ## Details
 Markdown files are placed into the `src` directory. When the `generate.py` 
