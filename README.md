@@ -14,12 +14,11 @@ Balthazar.
 ## TODO
 * Parallelize the building process
 * Also have it move an assets folder and its contents as part of the process
-* Finish up the Pandoc templates
 * Fix generation script to support more than one level of directory
-* Get metadata going in the markdown docs
 * Clean up the generation script a bit
 * Empty the `html` directory before adding in the new HTML
 * Clean up the Header/Footer file generation
+* Maybe add some table of contents here and there
 
 ## Details
 Markdown files are placed into the `src` directory. When the `generate.py` 
