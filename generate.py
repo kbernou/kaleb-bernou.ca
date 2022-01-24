@@ -23,6 +23,6 @@ for file in files:
         file_dir = f"{file_dir[1]}/"
 
     subdir = f'{html_dir}/{file_dir}/{file.stem}.html'
-    print(subdir)
+    
     os.system(
-        f'pandoc --standalone --from gfm --to html5 --output "{subdir}" "{file}"')
+        f'pandoc --lua-filter "assets/fix-links.lua" --standalone --from gfm --to html5 --output "{subdir}" "{file}"')
