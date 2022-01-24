@@ -16,7 +16,6 @@ Balthazar.
 * Also have it move an assets folder and its contents as part of the process
 * Fix generation script to support more than one level of directory
 * Clean up the generation script a bit
-* Empty the `html` directory before adding in the new HTML
 * Clean up the Header/Footer file generation
 * Maybe add some table of contents here and there
 

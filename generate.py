@@ -1,9 +1,15 @@
+from multiprocessing.dummy import shutdown
 from pathlib import Path
 import os
+import shutil
 
 md_dir = "./src"
 html_dir = "./html"
 sub_md_dirs = next(os.walk(md_dir))[1]
+
+# delete the existing HTML dir if there is one
+if os.path.exists(html_dir):
+    shutil.rmtree(html_dir)
 
 # prepare the directories that the generated HTML will go into
 for dir in sub_md_dirs:
