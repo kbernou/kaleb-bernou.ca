@@ -18,6 +18,8 @@ Balthazar.
 * Clean up the generation script a bit
 * Clean up the Header/Footer file generation
 * Maybe add some table of contents here and there
+* See if the links in the header can't be made to work in the generated HTML and
+when displayed in the Markdown on GitHub and such.
 
 ## Details
 Markdown files are placed into the `src` directory. When the `generate.py` 

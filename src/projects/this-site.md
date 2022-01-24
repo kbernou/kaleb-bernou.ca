@@ -66,10 +66,12 @@ Makefiles are, but that's a tool I'll be adding to my belt another day. For now
 I wanted the site out and about.
 
 Getting the header with its links was a bit tricky. But actually not, because it 
-was working fine from the perspective of a web server. The absolute HTML links 
+was working fine from the perspective of the web server. The absolute HTML links 
 are A-OK when served, they just don't jive when looking at the HTML files in the
 browser on your system the operating system because then it tries to navigate to 
-`/projects/projects.html` which of course doesn't exist. Derp.
+`/projects/projects.html` which of course doesn't exist. I got confused getting
+the links to work in Markdown vs on the web. It would be nice for those header
+links to work in both places though.
 
 The generated HTML goes right to Nginx to be served now.
 
