@@ -12,7 +12,7 @@ Balthazar.
 (in my case Nginx)
 
 ## TODO
-* Parallelize the building process
+* Parallelize the building process (not that it takes long, but we can always do better)
 * Also have it move an assets folder and its contents as part of the process
 * Fix generation script to support more than one level of directory
 * Clean up the generation script a bit
@@ -29,4 +29,4 @@ script is ran, it looks at the folder structre of `src`, duplicates in in
 such that:
 * The template specified in `assets` is used
 * Each file is "standalone"
-* The directory structure in `html` mirros `src`
+* The directory structure in `html` mirrors `src`
